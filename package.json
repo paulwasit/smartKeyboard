@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "smart keyboard - swiftkey like",
   "main": "server.js",
+	"engines": {
+    "node": "4.2.3"
+	},
   "dependencies": {
     "express": "^4.13.4"
   },
