@@ -2,21 +2,20 @@
   "name": "smartkeyboard",
   "version": "0.1.0",
   "description": "smart keyboard - swiftkey like",
-  "main": "server.js",
 	"engines": {
     "node": "4.2.3"
-	},
+  },
+	"main": "server.js",
+	"scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "express": "^4.13.4"
   },
   "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
   "repository": {
     "type": "git",
-    "url": "smartKeyboard"
+    "url": "https://github.com/paulwasit/smartKeyboard"
   },
   "keywords": [
     "smart",
