@@ -30,7 +30,6 @@ $(document).click(".reactiveTextarea", function(evt) { updateButtons(); });
 function updateButtons () {
 	ngram = getNgram("inputText");
 	var nWords = getWords(ngram);
-	console.log(nWords);
 	$("#word1").html(nWords[2] || " ");
 	$("#word2").html(nWords[0] || " ");
 	$("#word3").html(nWords[1] || " ");
