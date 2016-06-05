@@ -7,6 +7,8 @@ $(document).ready(function() {
 	$.getJSON("./data/en_US.10.freq.10.fast.json", function(json) {
     freqJson = json;
 		updateButtons();
+		$("#inputText").prop('disabled', false);
+		$("#inputText").prop('placeholder', 'start typing');
 		$("#inputText").focus();
 	});	
 });
