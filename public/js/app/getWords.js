@@ -47,7 +47,7 @@ function getWords (ngram) {
 		// additional filtering for beg of word
 		if (lenCW>0) {
 			iWordsArray = iWordsArray.filter(function(el) {
-				return (el[0].substring(0,lenCW) === cW);
+				return (el[0].substring(0,lenCW) === cW.toLowerCase());
 			});
     }
 		
