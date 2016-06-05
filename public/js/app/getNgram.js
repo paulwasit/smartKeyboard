@@ -1,6 +1,6 @@
 'use strict'
 
-function getNgram (textareaID, cursorInit) {
+var getNgram = function (textareaID, cursorInit) {
 	
 	textareaID = '#' + textareaID;
 	var input = $(textareaID), // or $('#myinput')[0]

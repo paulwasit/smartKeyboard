@@ -1,6 +1,16 @@
 'use strict'
 
-function getWords (ngram) {
+
+var clean = function (iWords, word) {
+	var idx = iWords.c2.indexOf(word);
+	if ( idx !== -1 ) {
+		iWords.c2.splice(idx,1); 
+		iWords.score.splice(idx,1);
+	}
+	return (iWords);
+}
+
+var getWords = function (ngram) {
 	
 	var pW = ngram.previousWords,
 			cW = ngram.currentWord,
@@ -91,11 +101,3 @@ function getWords (ngram) {
 	
 }
 
-function clean (iWords, word) {
-	var idx = iWords.c2.indexOf(word);
-	if ( idx !== -1 ) {
-		iWords.c2.splice(idx,1); 
-		iWords.score.splice(idx,1);
-	}
-	return (iWords);
-}
