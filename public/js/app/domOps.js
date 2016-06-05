@@ -21,9 +21,10 @@ $(document).ready(function() {
 	
 	function getNgramJson (i) {
 		$.getJSON("./data/en_US.10.freq.10.fast."+i+".json", function(json) {
-			countDone = countDone+1;
+			countDone = countDone+20;
 			freqJson[String(i)] = json;
-			if (countDone===5) {
+			$("#inputText").prop('placeholder','please wait while the dictionary loads - ' + countDone + '% done');
+			if (countDone===100) {
 				updateButtons();
 				$("#inputText").prop('disabled', false);
 				$("#inputText").prop('placeholder', 'start typing');
