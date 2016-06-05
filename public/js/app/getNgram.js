@@ -31,9 +31,17 @@ var getNgram = function (textareaID, cursorInit) {
 			currentWords = (".\n" + beforePos).match(pat2)[3].split(' ').slice(-4),
 			previousWords = currentWords.slice(0,currentWords.length-1),
 			currentWord = currentWords.slice(-1)[0];
-			
+	
+	if (previousWords.length!==0) {
+		var ncharPW = 0;
+		for (var i=0;i<previousWords.length;i++) {
+			ncharPW = ncharPW + previousWords[i].length;
+		}
+	}
+	
 	var ngram = {
-		"previousWords": (previousWords.length==0 || previousWords.reduce((a,b) => a+b.length) == 0) ? ["eol#"] : previousWords,
+		//"previousWords": (previousWords.length===0 || previousWords.reduce((a,b) => a+b.length) === 0) ? ["eol#"] : previousWords,
+		"previousWords": (previousWords.length===0 || ncharPW === 0) ? ["eol#"] : previousWords,
 		"currentWord": currentWord,
 		"previousText": beforePos.substring(0,beforePos.length-currentWord.length),
 		"nextText": afterPos,
