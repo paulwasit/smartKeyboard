@@ -1,9 +1,12 @@
 'use strict'
 
-var freqJson,ngram;
+var ngram, 
+		freqJson={},
+		countDone = 0;
 
 $(document).ready(function() {
   $("#inputText").focus();
+	/*
 	$.getJSON("./data/en_US.10.freq.10.fast.json", function(json) {
     freqJson = json;
 		updateButtons();
@@ -11,6 +14,24 @@ $(document).ready(function() {
 		$("#inputText").prop('placeholder', 'start typing');
 		$("#inputText").focus();
 	});	
+	*/
+	for (var i=0;i<5;i++) {
+		getNgramJson(i);
+	}
+	
+	function getNgramJson (i) {
+		$.getJSON("./data/en_US.10.freq.10.fast."+i+".json", function(json) {
+			countDone = countDone+1;
+			freqJson[String(i)] = json;
+			if (countDone===5) {
+				updateButtons();
+				$("#inputText").prop('disabled', false);
+				$("#inputText").prop('placeholder', 'start typing');
+				$("#inputText").focus();
+			}
+		});	
+	}
+	
 });
 
 // update input on button click
